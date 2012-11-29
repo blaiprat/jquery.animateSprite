@@ -5,7 +5,6 @@ $(function(){
     // @author: Blai Pratdesaba <blai.pratdesaba@visualdna.com>
 
     // parameters:
-    // target, name of the target (p. ex.: '.cord1')
     // columns, number of columns of the sprite sheet
     // totalFrames, number of frames of the animation
     // duration, miliseconds
@@ -14,6 +13,7 @@ $(function(){
     // TODOS:
     // - The plugin doesn't chain correctly $
     // - This only works with the first element
+    // - Extend options instead of the mess we have right now
 
     //init values
     var animation = {
@@ -47,12 +47,6 @@ $(function(){
         this.target.css("background-position", (-animation.width * column) +'px '+  (-animation.height * row) + 'px');
       }
     };
-
-    if(animation.loop === true){ 
-
-
-
-    }
 
     var fAnimation = function(){
       $(animation).animate({
