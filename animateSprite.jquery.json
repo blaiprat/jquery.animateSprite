@@ -9,12 +9,11 @@
     "animation",
     "2d",
     "ui",
-    "games",
-
+    "games"
   ],
   "version": "1.0",
   "author": {
-    "name": "Blai Pratdesaba Pares",
+    "name": "Blai Pratdesaba Pares"
   },
   "maintainers": [
     {
