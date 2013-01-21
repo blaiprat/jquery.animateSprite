@@ -2,7 +2,7 @@ $(function(){
 
   $.fn.animateSprite = function(parameters){
     
-    // @author: Blai Pratdesaba <blai.pratdesaba@visualdna.com>
+    // @author: Blai Pratdesaba <hello@blaipratdesaba.com>
 
     // parameters:
     // columns, number of columns of the sprite sheet
@@ -56,20 +56,17 @@ $(function(){
         easing: 'linear',
         step: animation.updateAnimation,
         complete: function(e){
-          animation.updateAnimation(e)
+          animation.updateAnimation(e);
           if (animation.loop === true) {
-          
             this.frame = 0;
-            fAnimation()
+            fAnimation();
           } else  {
-
-            animation.complete()
+            animation.complete();
           }
         }
       });
-    }
+    };
     fAnimation();
-
 
     
     return this;
