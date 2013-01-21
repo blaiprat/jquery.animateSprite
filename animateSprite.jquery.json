@@ -1,0 +1,39 @@
+{
+  "name": "animateSprite",
+  "title": "jQuery animate Sprite sheet",
+  "description": "Animating sprites using jQuery made easy.",
+  "keywords": [
+    "sprite",
+    "spritesheet",
+    "frames",
+    "animation",
+    "2d",
+    "ui",
+    "games",
+
+  ],
+  "version": "1.0",
+  "author": {
+    "name": "Blai Pratdesaba Pares",
+  },
+  "maintainers": [
+    {
+      "name": "Blai Pratdesaba Pares",
+      "email": "hello@blaipratdesaba.com",
+      "url": "http://blaipratdesaba.com"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+    }
+  ],
+  "bugs": "http://github.com/blaiprat/jquery.animateSprite/issues",
+  "homepage": "https://github.com/blaiprat/jquery.animateSprite",
+  "docs": "http://github.com/blaiprat/jquery.animateSprite#jqueryanimatesprite",
+  "download": "http://github.com/blaiprat/jquery.animateSprite",
+  "dependencies": {
+    "jquery": ">=1.8"
+  }
+}
