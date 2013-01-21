@@ -26,9 +26,9 @@ How to use it
 
 ##### Options
 ```javascript
-	columns: 		"int" // the number of columns the sprite sheet has, default 10
-	totalFrames:	"int" // number of frames the animation has
-	duration:		"int" // time to complete the animation, in milliseconds
-	complete:		"function" // called after the animation has finished (not called if is loop)
-	loop:			"bool" // if the animation has to loop
+	columns: 		int // the number of columns the sprite sheet has, default 10
+	totalFrames:	int // number of frames the animation has
+	duration:		int // time to complete the animation, in milliseconds
+	complete:		function // called after the animation has finished (not called if is loop)
+	loop:			bool // if the animation has to loop
 ```
