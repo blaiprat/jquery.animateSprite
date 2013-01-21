@@ -11,9 +11,10 @@
     "ui",
     "games"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
-    "name": "Blai Pratdesaba Pares"
+    "name": "Blai Pratdesaba Pares",
+    "url": "https://github.com/jquery/jquery-color/blob/2.1.2/AUTHORS.txt"
   },
   "maintainers": [
     {
