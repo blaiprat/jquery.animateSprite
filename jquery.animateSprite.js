@@ -1,7 +1,4 @@
-$(function(){
-
-  $.fn.animateSprite = function(parameters){
-    
+(function($) {
     // @author: Blai Pratdesaba <hello@blaipratdesaba.com>
 
     // parameters:
@@ -10,66 +7,113 @@ $(function(){
     // duration, miliseconds
     // complete, callback called when the function is completed
 
-    // TODOS:
-    // - The plugin doesn't chain correctly $
-    // - This only works with the first element
-    // - Extend options instead of the mess we have right now
 
-    //init values
-    var animation = {
-      frame: 1,
-      currentFrame: 1
-    };
+    var methods = {
+        init: function(options){
 
+            return this.each(function(){
+                var $this = $(this),
+                    data  = $this.data('animateSprite');
 
-    parameters = (parameters !== undefined ) ? parameters : {};
-    animation.target = $(this[0]);
-    animation.width = (animation.target !== undefined ) ? $(animation.target).width() : 0;
-    animation.height = (animation.target !== undefined ) ? $(animation.target).height() : 0;
-    animation.totalFrames = (parameters.totalFrames !== undefined ) ? parameters.totalFrames : 1;
-    animation.columns = (parameters.columns !== undefined ) ? parameters.columns : 10;
-    animation.duration = (parameters.duration !== undefined ) ? parameters.duration : 2000;
-    animation.complete = (parameters.complete !== undefined && typeof(parameters.complete) === "function") ? parameters.complete : function(){};
-    animation.loop = (parameters.loop !== undefined ) ? parameters.loop : false;
+                if ( !data ){
+                    $this.data('animateSprite', {
+                        settings: $.extend({
+                            width: $this.width(),
+                            height: $this.height(),
+                            totalFrames: 10,
+                            columns: 10,
+                            duration: 2000,
+                            complete: function(){},
+                            loop: false,
+                            autoPlay: true
+                        }, options),
+                        currentFrame: 0,
+                        controlAnimation: function(){
+                            $this.animateSprite("showFrame", data.currentFrame);
+                            this.currentFrame++;
+                            if ( this.currentFrame >= this.settings.totalFrames ){
+                                if ( this.settings.loop === true ){
+                                    this.currentFrame = 0;
+                                } else {
+                                    console.log("eliminating interval", this.interval);
+                                    this.settings.complete();
+                                    clearInterval(this.interval);
+                                }
+                            }
+                        }
+                    });
 
-    animation.updateAnimation = function(ev){
+                    data = $this.data('animateSprite');
 
-      // executing the code only when needed
-      if ( this.currentFrame !== Math.ceil(ev)){
+                    data.interval = setInterval(function(){
+                        data.controlAnimation();
+                    }, data.settings.duration / data.settings.totalFrames);
 
-        var row, column;
-        this.currentFrame = Math.ceil(ev);
+                }
 
-        row = Math.floor(this.currentFrame / this.columns);
-        column = this.currentFrame % this.columns;
+                $this.animateSprite("showFrame", 16);
+            });
+                // if ( settings.autoPlay === true){
+                //   fireAnimation();
+                // }
+        },
+        showFrame: function(frameNumber){
+            // frame: number of the frame to be displayed
+            return this.each(function(){
+                var $this = $(this),
+                    data  = $this.data('animateSprite'),
+                    row = Math.floor(frameNumber / data.settings.columns),
+                    column = frameNumber % data.settings.columns;
 
-        //changing background
-        this.target.css("background-position", (-animation.width * column) +'px '+  (-animation.height * row) + 'px');
-      }
-    };
+                $this.css("background-position", (-data.settings.width * column) +'px '+  (-data.settings.height * row) + 'px');
 
-    var fAnimation = function(){
-      $(animation).animate({
-        frame: animation.totalFrames
-      }, {
-        duration: animation.duration,
-        easing: 'linear',
-        step: animation.updateAnimation,
-        complete: function(e){
-          animation.updateAnimation(e);
-          if (animation.loop === true) {
-            this.frame = 0;
-            fAnimation();
-          } else  {
-            animation.complete();
-          }
+            });
+        },
+        stopAnimation: function(){
+            return this.each(function(){
+                var $this = $(this),
+                    data  = $this.data('animateSprite');
+                clearInterval(data.interval);
+            });
+        },
+        resumeAnimation: function(){
+            return this.each(function(){
+                var $this = $(this),
+                    data  = $this.data('animateSprite');
+
+                // always stop animation to prevent overlapping intervals
+                $this.animateSprite("stopAnimation");
+
+                data.interval = setInterval(function(){
+                    data.controlAnimation();
+                }, data.settings.duration / data.settings.totalFrames);
+            });
+        },
+        restartAnimation: function(){
+            return this.each(function(){
+                var $this = $(this),
+                    data  = $this.data('animateSprite');
+
+                $this.animateSprite("stopAnimation");
+
+                data.currentFrame = 0;
+                data.interval = setInterval(function(){
+                    data.controlAnimation();
+                }, data.settings.duration / data.settings.totalFrames);
+            });
         }
-      });
     };
-    fAnimation();
 
-    
-    return this;
-  };
+    $.fn.animateSprite = function(method){
 
-});
+        if ( methods[method] ) {
+            return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+        } else if ( typeof method === 'object' || ! method ) {
+            return methods.init.apply( this, arguments );
+        } else {
+            $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
+        }
+
+    };
+
+})(jQuery);
