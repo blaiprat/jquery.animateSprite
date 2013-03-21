@@ -13,7 +13,8 @@
   ],
   "version": "1.1",
   "author": {
-    "name": "Blai Pratdesaba Pares"
+    "name": "Blai Pratdesaba Pares",
+    "url": "https://raw.github.com/blaiprat/jquery.animateSprite/master/AUTHORS.txt"
   },
   "maintainers": [
     {
