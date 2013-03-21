@@ -6,8 +6,9 @@ Animating sprites using jQuery made easy
 Release notes
 -------------
 
-1.1 Refacotred the plugin. Added new methods so it's easier to control what the plugin is doing. Also now it chains correctly and controls multiple jquery objects instead of one.
-1.0 Initial release
+**1.1** Refacotred the plugin. Added new methods so it's easier to control what the plugin is doing. Also now it chains correctly and controls multiple jquery objects instead of one
+
+**1.0** Initial release
 
 How to use it
 -------------
