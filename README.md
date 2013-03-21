@@ -17,7 +17,10 @@ How to use it
 
 2. Put the sprite file as a background image.
 
-3. Call the plugin. Example:
+3. Call the plugin.
+
+Example:
+--------
 
 ```javascript
 	$(".sprite").animateSprite({
