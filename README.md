@@ -5,7 +5,7 @@ Animating sprites using jQuery made easy
 
 Release notes
 -------------
-**1.1.2** Added a fancy page to explain the plugin (http://blaiprat.github.com/jquery.animateSprite). Renamed "showFrame" to "frame"
+**1.1.3** Added a fancy page to explain the plugin (http://blaiprat.github.com/jquery.animateSprite). Renamed "showFrame" to "frame"
 
 **1.1** Refacotred the plugin. Added new methods so it's easier to control what the plugin is doing. Also now it chains correctly and controls multiple jquery objects instead of one
 
