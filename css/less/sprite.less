@@ -25,6 +25,7 @@ body { background-color: @orange3; color: @orange1;}
 header {
     .make-column(8);
     .make-column-offset(2);
+    .clear_float();
     text-align: center;
     margin: 40px 0;
     h1, h2 {
@@ -34,16 +35,37 @@ header {
         font-weight: bold;
     }
     h1 { .font-size(72); line-height: 72px; }
-    h2 { .font-size(48); line-height: 48px; }
-    h3 { padding-top: @line-height-base;}
+    h2 { .font-size(48); line-height: 48px; margin-bottom: 40px;}
+    h3 {
+        padding: @line-height-base 80px;
+    }
+    a {
+        .btn;
+        .btn-large;
+        .btn-pseudo-states(@orange1, @orange2);
+    }
 }
-article {
+article, footer {
+    margin-top: 60px;
     .container-fixed();
-    section {
+    a { color:  darken(@orange1, 10%); text-decoration: underline;}
+    a:hover { color: @orange2; }
+    section, &>h1, &>p {
         display: block;
         .make-column(8);
         .make-column-offset(2);
         .clear_float();
+    }
+    h1 {
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, .6);
+        font-family: @fontBrand;
+        font-weight: bold;
+        text-align: center;
+        .font-size(48);
+        line-height: 48px;
+    }
+    section {
+
         .description { .make-row();
             margin-top: 20px;
             margin-bottom: 10px;
@@ -59,6 +81,11 @@ article {
         }
         p { .font-size(22); line-height: 24px; padding-top:;}
     }
+}
+footer { 
+    text-align: center;
+    h1 { padding: 40px 0;}
+    margin-bottom: 40px;
 }
 .visor, .controls {
     text-align: center;
