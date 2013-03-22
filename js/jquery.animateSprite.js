@@ -29,13 +29,12 @@
                         }, options),
                         currentFrame: 0,
                         controlAnimation: function(){
-                            $this.animateSprite("showFrame", data.currentFrame);
+                            $this.animateSprite("frame", data.currentFrame);
                             this.currentFrame++;
                             if ( this.currentFrame >= this.settings.totalFrames ){
                                 if ( this.settings.loop === true ){
                                     this.currentFrame = 0;
                                 } else {
-                                    console.log("eliminating interval", this.interval);
                                     this.settings.complete();
                                     clearInterval(this.interval);
                                 }
@@ -51,13 +50,12 @@
 
                 }
 
-                $this.animateSprite("showFrame", 16);
             });
                 // if ( settings.autoPlay === true){
                 //   fireAnimation();
                 // }
         },
-        showFrame: function(frameNumber){
+        frame: function(frameNumber){
             // frame: number of the frame to be displayed
             return this.each(function(){
                 var $this = $(this),

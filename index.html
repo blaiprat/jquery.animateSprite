@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQuery.animateSprite</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href='http://fonts.googleapis.com/css?family=Economica:400,700' rel='stylesheet'  type='text/css'>
+
+        <link rel="stylesheet" href="css/sprite.css">
+        <style type="text/css">
+            .ramona {
+                width: 125px;
+                height: 157px;
+                background-image: url(img/ramonaflowers.png);
+                display: inline-block;
+            }
+            .scott {
+                height: 140px;
+                width: 108px;
+                background-image: url(img/scottpilgrim.png);
+                display: inline-block;
+            }
+        </style>
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <header>
+            <h1>jQuery.animateSprite</h1>
+            <h2>Animating sprites, the easy way</h2>
+            <div class="ramona"></div>
+            <h3>jQuery.animateSprite is a simple plugin to control sprite animations without much trouble, just follow this simple steps</h3>
+        </header>
+
+        <article>
+
+            <section>
+                <div class="description">
+                    <h1>1.</h1>
+                    <p>Create an empty div and assign the sprite as a background, set the width and height so it displays the first frame</p>
+                </div>
+                <div>
+                    <pre>
+.scott {
+    height: 140px;
+    width: 108px;
+    background-image: url(img/run.fw.png);
+}</pre>
+                </div>
+            </section>
+
+            <section>
+                <div class="description">
+                    <h1>2.</h1>
+                    <p>Call the plugin using the following options</p>
+                </div>
+
+                <pre>
+$(".scott").animateSprite({
+    columns: 8,
+    totalFrames: 8,
+    duration: 750,
+    loop: true,
+    complete: function(){
+        // this will be called when
+        // there is no loop and the
+        // animation finishes
+        alert("animation End");
+    }
+});</pre>
+            </section>
+
+            <section>
+                <div class="description">
+                    <h1>3. </h1>
+                    <p>Use the following methods to control the animation</p>
+
+                </div>
+                <div class="visor">
+                    <div class="scott"></div>
+                </div>
+                <div class="controls">
+                    <code>$(".scott").animateSprite("stopAnimation") </code>
+                    <button id="stop-animation"> Try it! </button>
+                    <code>$(".scott").animateSprite("resumeAnimation")</code>
+                    <button id="resume-animation"> Try it! </button>
+                    <code>$(".scott").animateSprite("restartAnimation")</code>
+                    <button id="restart-animation"> Try it! </button>
+                    <code>$(".scott").animateSprite("frame", 3)</code>
+                    <button id="goto-frame"> Try it! </button>
+                </div>
+            </section>
+        <article>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+        <script src="js/jquery.animateSprite.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $(".scott, .ramona").animateSprite({
+                    columns: 8,
+                    totalFrames: 8,
+                    duration: 750,
+                    loop: true
+                })
+                $("#stop-animation").on("click", function(){
+                    $(".scott").animateSprite("stopAnimation");
+                });
+                $("#resume-animation").on("click", function(){
+                    $(".scott").animateSprite("resumeAnimation");
+                });
+                $("#restart-animation").on("click", function(){
+                    $(".scott").animateSprite("restartAnimation");
+                });
+                $("#stop-animation").on("click", function(){
+                    $(".scott").animateSprite("stopAnimation");
+                });
+                $("#goto-frame").on("click", function(){
+                    $(".scott").animateSprite("frame", 3);
+                });
+            });
+        </script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-32370432-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
