@@ -1,12 +1,8 @@
 (function($) {
     // @author: Blai Pratdesaba <hello@blaipratdesaba.com>
 
-    // parameters:
-    // columns, number of columns of the sprite sheet
-    // totalFrames, number of frames of the animation
-    // duration, miliseconds
-    // complete, callback called when the function is completed
-
+    // read the documentation on
+    // http://blaiprat.github.com/jquery.animateSprite/
 
     var methods = {
         init: function(options){
@@ -29,13 +25,12 @@
                         }, options),
                         currentFrame: 0,
                         controlAnimation: function(){
-                            $this.animateSprite("showFrame", data.currentFrame);
+                            $this.animateSprite("frame", data.currentFrame);
                             this.currentFrame++;
                             if ( this.currentFrame >= this.settings.totalFrames ){
                                 if ( this.settings.loop === true ){
                                     this.currentFrame = 0;
                                 } else {
-                                    console.log("eliminating interval", this.interval);
                                     this.settings.complete();
                                     clearInterval(this.interval);
                                 }
@@ -51,13 +46,12 @@
 
                 }
 
-                $this.animateSprite("showFrame", 16);
             });
                 // if ( settings.autoPlay === true){
                 //   fireAnimation();
                 // }
         },
-        showFrame: function(frameNumber){
+        frame: function(frameNumber){
             // frame: number of the frame to be displayed
             return this.each(function(){
                 var $this = $(this),

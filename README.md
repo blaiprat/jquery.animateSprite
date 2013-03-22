@@ -5,6 +5,7 @@ Animating sprites using jQuery made easy
 
 Release notes
 -------------
+**1.1.2** Added a fancy page to explain the plugin (http://blaiprat.github.com/jquery.animateSprite). Renamed "showFrame" to "frame"
 
 **1.1** Refacotred the plugin. Added new methods so it's easier to control what the plugin is doing. Also now it chains correctly and controls multiple jquery objects instead of one
 
@@ -48,6 +49,6 @@ Example:
 	$("object").animateSprite("stopAnimation")		stops the animation
 	$("object").animateSprite("resumeAnimation")	continues the animation from the point where it was stopped
 	$("object").animateSprite("restartAnimation")	starts the animation from the beginning
-	$("object").animateSprite("showFrame", n)		displays the frame number "n"
+	$("object").animateSprite("frame", n)		displays the frame number "n"
 
 ```
