@@ -1,12 +1,10 @@
+/* jQuery.animateSprite
+* http://blaiprat.github.io/jquery.animateSprite/
+*
+* Copyright (c) 2013 Blai Pratdesaba  <hello@blaipratdesaba.com>, contributors
+* Licensed under the MIT license.
+*/
 (function($) {
-    // @author: Blai Pratdesaba <hello@blaipratdesaba.com>
-
-    // parameters:
-    // columns, number of columns of the sprite sheet
-    // totalFrames, number of frames of the animation
-    // duration, miliseconds
-    // complete, callback called when the function is completed
-
 
     var methods = {
         init: function(options){
