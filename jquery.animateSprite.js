@@ -1,8 +1,10 @@
+/* jQuery.animateSprite
+* http://blaiprat.github.io/jquery.animateSprite/
+*
+* Copyright (c) 2013 Blai Pratdesaba  <hello@blaipratdesaba.com>, contributors
+* Licensed under the MIT license.
+*/
 (function($) {
-    // @author: Blai Pratdesaba <hello@blaipratdesaba.com>
-
-    // read the documentation on
-    // http://blaiprat.github.com/jquery.animateSprite/
 
     var methods = {
         init: function(options){
