@@ -5,7 +5,7 @@ Animating sprites using jQuery made easy
 
 Release notes
 -------------
-**1.2.0** Added animations. Use multiple animations in one single file and call.
+**1.2.0** Added animations. Use multiple animations in one single file and call. Even with this new system, scripts that were done targeting an old version of jQuery.animateSprite should work with this one. If that's not the case please raise an issue.
 
 **1.1.5** Updated the plugin to have the MIT license.
 
@@ -22,7 +22,7 @@ How to use it
 
 2. Put the sprite file as a background image.
 
-3. Call the plugin.
+3. Call the plugin. Use 'animations' to store multiple animations, setting the correct keyframe per each one. By default, jQuery.animateSprite will use the first defined and will start playing the animatino. Use t
 
 Example:
 --------
@@ -33,7 +33,7 @@ Example:
 		loop: true,
 		animations: {
 			walk: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-			run: [9, 10, 11, 12, 13, 14]
+			run: [14, 13, 12, 11, 10, 9]
 		},
 		complete: function(){
 			alert('Sprite animation complete!');
@@ -44,10 +44,13 @@ Example:
 ##### Options
 ```javascript
 	columns: 		int // the number of columns the sprite sheet has, default 10
-	totalFrames:	int // number of frames the animation has
-	duration:		int // time to complete the animation, in milliseconds
-	complete:		function // called after the animation has finished (not called if is loop)
+	fps:			int // define animation speed
+	duration:		int // time to complete the animation, in milliseconds (overrides fps)
+	complete:		function // called after the animation has finished (not called if loop is set to true)
 	loop:			bool // if the animation has to loop
+	animations: 	object // Contains multiple animations.
+								The key should be the name of the animation,
+								and the value should be an array with the frames.
 ```
 
 ##### Methods
