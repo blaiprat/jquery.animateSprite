@@ -1,6 +1,9 @@
-/*! jqueryanimatesprite - v1.2.0 - 2014-02-15
+/* jQuery.animateSprite
 * http://blaiprat.github.io/jquery.animateSprite/
-* Copyright (c) 2014 blai Pratdesaba; Licensed MIT */
+*
+* Copyright (c) 2014 Blai Pratdesaba  <hello@blaipratdesaba.com>, contributors
+* Licensed under the MIT license.
+*/
 (function ($, window, undefined) {
 
     'use strict';
@@ -102,8 +105,6 @@
                             var rows = Math.round(height / data.settings.height);
                             data.settings.totalFrames = data.settings.columns * rows;
                         }
-                        var fps = data.settings.fps;
-                        console.log('firing timer', fps);
                         data.controlTimer();
                     });
                 } else {
