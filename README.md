@@ -43,14 +43,14 @@ Example:
 
 ##### Options
 ```javascript
-	columns: 		int // the number of columns the sprite sheet has, default 10
-	fps:			int // define animation speed
-	duration:		int // time to complete the animation, in milliseconds (overrides fps)
+	columns: 		int 	// the number of columns the sprite sheet has, default 10
+	fps:			int 	// define animation speed
+	duration:		int 	// time to complete the animation, in milliseconds (overrides fps)
 	complete:		function // called after the animation has finished (not called if loop is set to true)
-	loop:			bool // if the animation has to loop
-	animations: 	object // Contains multiple animations.
-								The key should be the name of the animation,
-								and the value should be an array with the frames.
+	loop:			bool 	// if the animation has to loop
+	animations: 	object 	// Contains multiple animations.
+							// The key should be the name of the animation,
+							// and the value should be an array with the frames.
 ```
 
 ##### Methods
