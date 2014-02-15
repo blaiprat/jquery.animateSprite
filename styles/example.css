@@ -1,0 +1,11 @@
+.animation {
+    background: url(../img/ramonaflowers.png);
+    width: 125px;
+    height: 157px;
+}
+
+.animation-2 {
+    background: url(../img/ramonaflowers_multiple.png);
+    width: 125px;
+    height: 157px;
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>jquery animateSprite</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="styles/example.css">
+    </head>
+    <body>
+
+        <div class="animation"></div>
+        <button id="left">Go Left</button>
+        <button id="right">Go Right</button>
+        <button id="stop">Stop</button>
+        <button id="resume">Resume</button>
+        <button id="restart">Restart</button>
+
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="scripts/jquery.animateSprite.js"></script>
+
+        <script>
+/* global $ */
+$('.animation').animateSprite({
+    fps: 12,
+    loop: true,
+    animations: {
+        walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
+        walkLeft: [8, 9, 10, 11, 12, 13, 14, 15]
+    },
+    complete: function(){
+        // this will be called when
+        // there is no loop and the
+        // animation finishes
+        window.alert('animation End');
+    }
+});
+
+var goLeft = function(){
+    $('.animation').animateSprite('play', 'walkLeft');
+}
+
+var goRight = function(){
+    $('.animation').animateSprite('play', 'walkRight');
+}
+$('#left').on('click', goLeft);
+$('#right').on('click', goRight);
+$('#stop').on('click', function(){
+    $('.animation').animateSprite('stop');
+});
+$('#resume').on('click', function(){
+    $('.animation').animateSprite('resume');
+});
+
+$('#restart').on('click', function(){
+    $('.animation').animateSprite('restart');
+});
+
+$('body').on('keydown', function(ev){
+    if (ev.keyCode === 39){
+        goRight();
+    } else if (ev.keyCode === 37) {
+        goLeft();
+    }
+    console.log('ev', ev.keyCode);
+});
+        </script>
+    </body>
+</html>
