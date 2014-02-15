@@ -105,8 +105,6 @@
                             var rows = Math.round(height / data.settings.height);
                             data.settings.totalFrames = data.settings.columns * rows;
                         }
-                        var fps = data.settings.fps;
-                        console.log('firing timer', fps);
                         data.controlTimer();
                     });
                 } else {
