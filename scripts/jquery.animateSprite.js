@@ -77,14 +77,16 @@
                     },
                     controlTimer: function () {
                         // duration overrides fps
-                        var interval = 1000 / data.settings.fps;
-                        if (typeof data.settings.duration === 'undefined') {
-                            interval = data.settings.duration / data.settings.totalFrames;
+                        var speed = 1000 / data.settings.fps;
+
+                        if (typeof data.settings.duration !== 'undefined') {
+                            speed = data.settings.duration / data.settings.totalFrames;
                         }
 
                         data.interval = setInterval(function () {
                             data.controlAnimation();
-                        }, interval);
+                        }, speed);
+
                     }
                 });
 
@@ -103,6 +105,8 @@
                             var rows = Math.round(height / data.settings.height);
                             data.settings.totalFrames = data.settings.columns * rows;
                         }
+                        var fps = data.settings.fps;
+                        console.log('firing timer', fps);
                         data.controlTimer();
                     });
                 } else {
