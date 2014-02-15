@@ -1,0 +1,11 @@
+{
+  "name": "jqueryanimatesprite",
+  "version": "1.2.0",
+  "description": "Animating sprites using jQuery made easy",
+  "dependencies": {
+    "jquery": "~1.8.2"
+  },
+  "devDependencies": {
+    "jasmine-jquery": "~1.5.93"
+  }
+}
