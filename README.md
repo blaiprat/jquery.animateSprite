@@ -28,37 +28,37 @@ Example:
 --------
 
 ```javascript
-	$('.sprite').animateSprite({
-		fps: 12,
-		loop: true,
-		animations: {
-			walk: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-			run: [14, 13, 12, 11, 10, 9]
-		},
-		complete: function(){
-			alert('Sprite animation complete!');
-		}
-	})
+    $('.sprite').animateSprite({
+        fps: 12,
+        loop: true,
+        animations: {
+            walk: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+            run: [14, 13, 12, 11, 10, 9]
+        },
+        complete: function(){
+            alert('Sprite animation complete!');
+        }
+    })
 ```
 
 ##### Options
 ```javascript
-	columns: 		int 	// the number of columns the sprite sheet has, default 10
-	fps:			int 	// define animation speed
-	duration:		int 	// time to complete the animation, in milliseconds (overrides fps)
-	complete:		function // called after the animation has finished (not called if loop is set to true)
-	loop:			bool 	// if the animation has to loop
-	animations: 	object 	// Contains multiple animations.
-							// The key should be the name of the animation,
-							// and the value should be an array with the frames.
+    columns:        int     // the number of columns the sprite sheet has, default 10
+    fps:            int     // define animation speed
+    duration:       int     // time to complete the animation, in milliseconds (overrides fps)
+    complete:       function // called after the animation has finished (not called if loop is set to true)
+    loop:           bool    // if the animation has to loop
+    animations:     object  // Contains multiple animations.
+                            // The key should be the name of the animation,
+                            // and the value should be an array with the frames.
 ```
 
 ##### Methods
 ```javascript
-	$('object').animateSprite('play', 'animation name')		plays the specified animation
-	$('object').animateSprite('stop')			stops the animation
-	$('object').animateSprite('resume')			continues the animation from the point where it was stopped
-	$('object').animateSprite('restart')		starts the animation from the beginning
-	$('object').animateSprite('frame', n)		displays the frame number 'n'
+    $('object').animateSprite('play', 'animation name')     plays the specified animation
+    $('object').animateSprite('stop')           stops the animation
+    $('object').animateSprite('resume')         continues the animation from the point where it was stopped
+    $('object').animateSprite('restart')        starts the animation from the beginning
+    $('object').animateSprite('frame', n)       displays the frame number 'n'
 
 ```
