@@ -202,7 +202,7 @@ table {
   img {
     max-width: 100% !important;
   }
-  @page  {
+  @page {
     margin: 0.5cm;
   }
   p,
@@ -475,10 +475,8 @@ dd {
 .dl-horizontal:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 .dl-horizontal:after {
   clear: both;
@@ -891,10 +889,8 @@ header:before,
 header:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 header:after {
   clear: both;
@@ -1013,6 +1009,11 @@ fieldset[disabled] header a.active {
   background-color: #a44221;
   border-color: #f08f33;
 }
+header a.small {
+  padding: 2px 10px;
+  font-size: 13.6;
+  border-radius: 3px;
+}
 article,
 footer {
   margin-top: 60px;
@@ -1025,10 +1026,8 @@ article:after,
 footer:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 article:after,
 footer:after {
@@ -1089,10 +1088,8 @@ article > p:after,
 footer > p:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 article section:after,
 footer section:after,
@@ -1126,10 +1123,8 @@ article section .description:after,
 footer section .description:after {
   content: " ";
   /* 1 */
-
   display: table;
   /* 2 */
-
 }
 article section .description:after,
 footer section .description:after {

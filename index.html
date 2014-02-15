@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>jQuery.animateSprite</title>
+        <title>jQuery.animateSprite 1.2.0 | sprite animations made simple</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -18,13 +18,13 @@
             .ramona {
                 width: 125px;
                 height: 157px;
-                background-image: url(img/ramonaflowers.png);
+                background-image: url(img/ramonaflowers_multiple.png);
                 display: inline-block;
             }
             .scott {
                 height: 140px;
                 width: 108px;
-                background-image: url(img/scottpilgrim.png);
+                background-image: url(img/scottpilgrim_multiple.png);
                 display: inline-block;
             }
         </style>
@@ -38,9 +38,11 @@
 
         <!-- Add your site or application content here -->
         <header>
-            <h1>jQuery.animateSprite</h1>
-            <h2>Animating sprites, the easy way</h2>
+            <h1>jQuery.animateSprite 1.2.0</h1>
+            <h2>Sprite animations made simple</h2>
+            <a href="#" class="small ramona-left">Run to the left</a>
             <div class="ramona"></div>
+            <a href="#" class="small ramona-right">Run to the right</a>
             <h3>jQuery.animateSprite is a simple plugin to control sprite animations </h3>
             <a href="http://raw.github.com/blaiprat/jquery.animateSprite/master/jquery.animateSprite.js">Download plugin</a>
             <a href="http://github.com/blaiprat/jquery.animateSprite">Visit Github page</a>
@@ -48,6 +50,15 @@
 
         <article>
             <h1>How it works</h1>
+            <section>
+                <div class="description">
+                    <h1>0.</h1>
+                    <p>
+                        Create or obtain a sprite, here is the one used on the example:
+                        <img src="img/scottpilgrim_multiple.png" alt="" sytle="max-width: 1000px;">
+                    </p>
+                </div>
+            </section>
             <section>
                 <div class="description">
                     <h1>1.</h1>
@@ -66,7 +77,9 @@
             <section>
                 <div class="description">
                     <h1>2.</h1>
-                    <p>Call the plugin using the following options</p>
+                    <p>Call the plugin using the following options. On animations you can define as many animations as you need, specifying the frames per animation using an array.</p>
+                    <p>jQuery.animateSprite will start playing the animation inmediately, using the first one defined.</p>
+                    <p>On the example, 'walkLeft' frames are inverted since it's the whole row is a mirror from 'walkRight'</p>
                 </div>
 
                 <pre>
@@ -74,13 +87,11 @@ $(".scott").animateSprite({
     fps: 12,
     animations: {
         walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
-        walkLeft: [8, 9, 10, 11, 12, 13, 14, 15]
-    }
+        walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
+    },
     loop: true,
     complete: function(){
-        // this will be called when
-        // there is no loop and the
-        // animation finishes
+        // use complete only when you set animations with 'loop: false'
         alert("animation End");
     }
 });</pre>
@@ -96,6 +107,10 @@ $(".scott").animateSprite({
                     <div class="scott"></div>
                 </div>
                 <div class="controls">
+                    <code>$(".scott").animateSprite('play', 'walkLeft') </code>
+                    <button id="play-left"> Try it! </button>
+                    <code>$(".scott").animateSprite('play', 'walkRight') </code>
+                    <button id="play-right"> Try it! </button>
                     <code>$(".scott").animateSprite('stop') </code>
                     <button id="stop-animation"> Try it! </button>
                     <code>$(".scott").animateSprite('resume')</code>
@@ -126,23 +141,44 @@ $(".scott").animateSprite({
             $(function() {
                 $(".scott, .ramona").animateSprite({
                     fps: 12,
-                    loop: true
+                    loop: true,
+                    animations: {
+                        walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
+                        walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
+                    }
                 });
 
-                $("#stop-animation").on("click", function(){
-                    $(".scott").animateSprite("stopAnimation");
+                $('.ramona-left').on('click', function(ev){
+                    ev.preventDefault();
+                    $('.ramona').animateSprite('play', 'walkLeft');
                 });
-                $("#resume-animation").on("click", function(){
-                    $(".scott").animateSprite("resumeAnimation");
+                $('.ramona-right').on('click', function(ev){
+                    ev.preventDefault();
+                    $('.ramona').animateSprite('play', 'walkRight');
                 });
-                $("#restart-animation").on("click", function(){
-                    $(".scott").animateSprite("restartAnimation");
+
+                $('#play-left').on('click', function(){
+                    $('.scott').animateSprite('play', 'walkLeft');
                 });
-                $("#stop-animation").on("click", function(){
-                    $(".scott").animateSprite("stopAnimation");
+
+                $('#play-right').on('click', function(){
+                    $('.scott').animateSprite('play', 'walkRight');
                 });
-                $("#goto-frame").on("click", function(){
-                    $(".scott").animateSprite("frame", 3);
+
+                $('#stop-animation').on('click', function(){
+                    $('.scott').animateSprite('stopAnimation');
+                });
+                $('#resume-animation').on('click', function(){
+                    $('.scott').animateSprite('resumeAnimation');
+                });
+                $('#restart-animation').on('click', function(){
+                    $('.scott').animateSprite('restartAnimation');
+                });
+                $('#stop-animation').on('click', function(){
+                    $('.scott').animateSprite('stopAnimation');
+                });
+                $('#goto-frame').on('click', function(){
+                    $('.scott').animateSprite('frame', 3);
                 });
             });
         </script>
