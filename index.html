@@ -71,9 +71,11 @@
 
                 <pre>
 $(".scott").animateSprite({
-    columns: 8,
-    totalFrames: 8,
-    duration: 750,
+    fps: 12,
+    animations: {
+        walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
+        walkLeft: [8, 9, 10, 11, 12, 13, 14, 15]
+    }
     loop: true,
     complete: function(){
         // this will be called when
@@ -94,13 +96,13 @@ $(".scott").animateSprite({
                     <div class="scott"></div>
                 </div>
                 <div class="controls">
-                    <code>$(".scott").animateSprite("stopAnimation") </code>
+                    <code>$(".scott").animateSprite('stop') </code>
                     <button id="stop-animation"> Try it! </button>
-                    <code>$(".scott").animateSprite("resumeAnimation")</code>
+                    <code>$(".scott").animateSprite('resume')</code>
                     <button id="resume-animation"> Try it! </button>
-                    <code>$(".scott").animateSprite("restartAnimation")</code>
+                    <code>$(".scott").animateSprite('restart')</code>
                     <button id="restart-animation"> Try it! </button>
-                    <code>$(".scott").animateSprite("frame", 3)</code>
+                    <code>$(".scott").animateSprite('frame', 3)</code>
                     <button id="goto-frame"> Try it! </button>
                 </div>
             </section>
@@ -123,11 +125,10 @@ $(".scott").animateSprite({
         <script type="text/javascript">
             $(function() {
                 $(".scott, .ramona").animateSprite({
-                    columns: 8,
-                    totalFrames: 8,
-                    duration: 750,
+                    fps: 12,
                     loop: true
-                })
+                });
+
                 $("#stop-animation").on("click", function(){
                     $(".scott").animateSprite("stopAnimation");
                 });
