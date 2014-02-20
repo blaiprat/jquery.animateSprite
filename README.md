@@ -22,7 +22,7 @@ How to use it
 
 2. Put the sprite file as a background image.
 
-3. Call the plugin. Use 'animations' to store multiple animations, setting the correct keyframe per each one. By default, jQuery.animateSprite will use the first defined and will start playing the animatino. Use t
+3. Call the plugin. Use 'animations' to store multiple animations, setting the correct keyframe per each one. By default, jQuery.animateSprite will use the first defined and will start playing the animation. 
 
 Example:
 --------
