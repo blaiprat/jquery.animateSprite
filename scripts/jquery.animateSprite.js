@@ -125,7 +125,7 @@
     var frame = function (frameNumber) {
         // frame: number of the frame to be displayed
         return this.each(function () {
-            if (typeof $(this).data('animateSprite') !== 'undefined' ) {
+            if (typeof $(this).data('animateSprite') !== 'undefined') {
                 var $this = $(this),
                     data  = $this.data('animateSprite'),
                     row = Math.floor(frameNumber / data.settings.columns),
@@ -185,7 +185,7 @@
         });
     };
 
-    var fps = function(val){
+    var fps = function (val) {
         return this.each(function () {
             var $this = $(this),
                 data  = $this.data('animateSprite');
