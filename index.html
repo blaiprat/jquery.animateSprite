@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>jQuery.animateSprite 1.2.0 | sprite animations made simple</title>
+        <title>jQuery.animateSprite 1.3.0 | sprite animations made simple</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -38,7 +38,7 @@
 
         <!-- Add your site or application content here -->
         <header>
-            <h1>jQuery.animateSprite 1.2.0</h1>
+            <h1>jQuery.animateSprite 1.3.0</h1>
             <h2>Sprite animations made simple</h2>
             <a href="#" class="small ramona-left">Run to the left</a>
             <div class="ramona"></div>
@@ -49,6 +49,27 @@
             <a href="http://github.com/blaiprat/jquery.animateSprite">Visit Github page</a>
         </header>
 
+        <article>
+            <h1>How to install it</h1>
+            <section>
+                <div class="description">
+                    <p>
+                        Use bower to install the extension using the following command
+                        <pre>bower install animatesprite</pre>
+                    </p>
+                    <br>
+                    <p>
+                        Or download the file from  <a href="https://github.com/blaiprat/jquery.animateSprite/blob/master/scripts/jquery.animateSprite.js">github</a>
+                    </p>
+                </div>
+
+            </section>
+            <section>
+                <div class="description">
+                </div>
+                
+            </section>
+        </article>
         <article>
             <h1>How it works</h1>
             <section>
@@ -120,6 +141,8 @@ $(".scott").animateSprite({
                     <button id="restart-animation"> Try it! </button>
                     <code>$(".scott").animateSprite('frame', 3)</code>
                     <button id="goto-frame"> Try it! </button>
+                    <code>$(".scott").animateSprite('fps', 3)</code>
+                    <button id="change-fps"> Try it! </button>
                 </div>
             </section>
         </article>
@@ -139,6 +162,7 @@ $(".scott").animateSprite({
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
         <script src="js/jquery.animateSprite.js"></script>
         <script type="text/javascript">
+            var originalFps = 12;
             $(function() {
                 $(".scott, .ramona").animateSprite({
                     fps: 12,
@@ -181,10 +205,14 @@ $(".scott").animateSprite({
                 $('#goto-frame').on('click', function(){
                     $('.scott').animateSprite('frame', 3);
                 });
+                $('#change-fps').on('click', function(){
+                    originalFps = (originalFps === 12) ? 3 : 12;
+                    $('.scott').animateSprite('fps', originalFps);
+                });
 
                 $('.ramona-remove').on('click', function(){
                     $('.ramona').remove();
-                })
+                });
             });
         </script>
 
