@@ -5,6 +5,9 @@ Animating sprites using jQuery made easy
 
 Release notes
 -------------
+
+**1.3.0** Added support for bower. You can install now the plugin using `bower install animatesprite`
+
 **1.2.0** Added animations. Use multiple animations in one single file and call. Even with this new system, scripts that were done targeting an old version of jQuery.animateSprite should work with this one. If that's not the case please raise an issue.
 
 **1.1.5** Updated the plugin to have the MIT license.
@@ -22,7 +25,7 @@ How to use it
 
 2. Put the sprite file as a background image.
 
-3. Call the plugin. Use 'animations' to store multiple animations, setting the correct keyframe per each one. By default, jQuery.animateSprite will use the first defined and will start playing the animation. 
+3. Call the plugin. Use 'animations' to store multiple animations, setting the correct keyframe per each one. By default, jQuery.animateSprite will use the first defined and will start playing the animation.
 
 Example:
 --------
