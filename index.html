@@ -43,6 +43,7 @@
             <a href="#" class="small ramona-left">Run to the left</a>
             <div class="ramona"></div>
             <a href="#" class="small ramona-right">Run to the right</a>
+            <!-- <a href="#" class="small ramona-remove">Remove</a> -->
             <h3>jQuery.animateSprite is a simple plugin to control sprite animations </h3>
             <a href="http://raw.github.com/blaiprat/jquery.animateSprite/master/scripts/jquery.animateSprite.min.js">Download plugin</a>
             <a href="http://github.com/blaiprat/jquery.animateSprite">Visit Github page</a>
@@ -180,6 +181,10 @@ $(".scott").animateSprite({
                 $('#goto-frame').on('click', function(){
                     $('.scott').animateSprite('frame', 3);
                 });
+
+                $('.ramona-remove').on('click', function(){
+                    $('.ramona').remove();
+                })
             });
         </script>
 
