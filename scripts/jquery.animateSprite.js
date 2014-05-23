@@ -74,6 +74,7 @@
                             this.currentFrame = checkLoop.call(this, this.currentFrame, this.currentAnimation.length);
 
                         }
+                        data.controlTimer();
                     },
                     controlTimer: function () {
                         // duration overrides fps
@@ -83,7 +84,7 @@
                             speed = data.settings.duration / data.settings.totalFrames;
                         }
 
-                        data.interval = setInterval(function () {
+                        data.interval = setTimeout(function () {
                             data.controlAnimation();
                         }, speed);
 
@@ -124,13 +125,14 @@
     var frame = function (frameNumber) {
         // frame: number of the frame to be displayed
         return this.each(function () {
-            var $this = $(this),
-                data  = $this.data('animateSprite'),
-                row = Math.floor(frameNumber / data.settings.columns),
-                column = frameNumber % data.settings.columns;
+            if (typeof $(this).data('animateSprite') !== 'undefined' ) {
+                var $this = $(this),
+                    data  = $this.data('animateSprite'),
+                    row = Math.floor(frameNumber / data.settings.columns),
+                    column = frameNumber % data.settings.columns;
 
-            $this.css('background-position', (-data.settings.width * column) + 'px ' + (-data.settings.height * row) + 'px');
-
+                $this.css('background-position', (-data.settings.width * column) + 'px ' + (-data.settings.height * row) + 'px');
+            }
         });
     };
 
