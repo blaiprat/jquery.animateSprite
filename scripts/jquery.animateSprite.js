@@ -185,6 +185,15 @@
         });
     };
 
+    var fps = function(val){
+        return this.each(function () {
+            var $this = $(this),
+                data  = $this.data('animateSprite');
+            // data.fps
+            data.settings.fps = val;
+        });
+    };
+
     var methods = {
         init: init,
         frame: frame,
@@ -194,7 +203,8 @@
         play: play,
         stopAnimation: stop,
         resumeAnimation: resume,
-        restartAnimation: restart
+        restartAnimation: restart,
+        fps: fps
     };
 
     $.fn.animateSprite = function (method) {

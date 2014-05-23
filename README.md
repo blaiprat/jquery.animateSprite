@@ -63,5 +63,6 @@ Example:
     $('object').animateSprite('resume')         continues the animation from the point where it was stopped
     $('object').animateSprite('restart')        starts the animation from the beginning
     $('object').animateSprite('frame', n)       displays the frame number 'n'
+    $('object').animateSprite('fps', n)         changes the speed of the animation to 'n' frames per second
 
 ```

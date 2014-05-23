@@ -16,14 +16,17 @@
         <button id="stop">Stop</button>
         <button id="resume">Resume</button>
         <button id="restart">Restart</button>
+        <button id="changeFPS">Change FPS</button>
+        <button id="remove">Remove DOM</button>
 
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="scripts/jquery.animateSprite.js"></script>
 
         <script>
 /* global $ */
-$('.animation').animateSprite({
-    fps: 12,
+var currentFps = 12;
+var animationSettings = {
+    fps: currentFps,
     loop: true,
     animations: {
         walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
@@ -35,7 +38,9 @@ $('.animation').animateSprite({
         // animation finishes
         window.alert('animation End');
     }
-});
+};
+
+$('.animation').animateSprite(animationSettings);
 
 var goLeft = function(){
     $('.animation').animateSprite('play', 'walkLeft');
@@ -55,6 +60,15 @@ $('#resume').on('click', function(){
 
 $('#restart').on('click', function(){
     $('.animation').animateSprite('restart');
+});
+
+$('#changeFPS').on('click', function(){
+    currentFps = (currentFps === 12) ? 3 : 12;
+    $('.animation').animateSprite('fps', currentFps);
+});
+
+$('#remove').on('click', function(){
+    $('.animation').remove();
 });
 
 $('body').on('keydown', function(ev){
