@@ -21,11 +21,13 @@ Release notes
 How to use it
 -------------
 
-1. Create an HTML Block Element (DIV) and define its width and height exactly as the with and height of the sprite.
+1. If you have  [Bower](http://bower.io/) installed, you can use `bower install animatesprite` to install the plugin. 
 
-2. Put the sprite file as a background image.
+2. Create an HTML Block Element (DIV) and define its width and height exactly as the with and height of the sprite.
 
-3. Call the plugin. Use 'animations' to store multiple animations, setting the correct keyframe per each one. By default, jQuery.animateSprite will use the first defined and will start playing the animation.
+3. Put the sprite file as a background image.
+
+4. Call the plugin. Use 'animations' to store multiple animations, setting the correct keyframe per each one. By default, jQuery.animateSprite will use the first defined and will start playing the animation.
 
 Example:
 --------
