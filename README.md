@@ -6,7 +6,7 @@ Animating sprites using jQuery made easy
 Release notes
 -------------
 
-**1.3.0** Added support for bower. You can install now the plugin using `bower install animatesprite`
+**1.3.0** Added support for bower. You can install now the plugin using `bower install animatesprite`. Fixed a leak when removing the DOM element, and added a new method to change FPS. 
 
 **1.2.0** Added animations. Use multiple animations in one single file and call. Even with this new system, scripts that were done targeting an old version of jQuery.animateSprite should work with this one. If that's not the case please raise an issue.
 
