@@ -13,9 +13,9 @@
             var $this = $(this),
                 data  = $this.data('animateSprite');
 
+            // ASYNC
             // If we don't specify the columns, we
             // can discover using the background size
-            // WARNING: this is async
             var discoverColumns = function (cb) {
                 var imageSrc = $this.css('background-image').replace(/url\((['"])?(.*?)\1\)/gi, '$2');
                 var image = new Image();
@@ -48,21 +48,22 @@
                             if (currentFrame >= finalFrame) {
                                 if (this.settings.loop === true) {
                                     currentFrame = 0;
+                                    data.controlTimer();
                                 } else {
                                     this.settings.complete();
-                                    clearInterval(this.interval);
-                                    return false;
                                 }
+                            } else {
+                                data.controlTimer();
                             }
                             return currentFrame;
                         };
 
-                        if (typeof this.settings.animations === 'undefined') {
+                        if (this.settings.animations === undefined) {
                             $this.animateSprite('frame', this.currentFrame);
                             this.currentFrame = checkLoop.call(this, this.currentFrame, this.settings.totalFrames);
 
                         } else {
-                            if (typeof this.currentAnimation === 'undefined') {
+                            if (this.currentAnimation === undefined) {
                                 for (var k in this.settings.animations) {
                                     this.currentAnimation = this.settings.animations[k];
                                     break;
@@ -74,13 +75,13 @@
                             this.currentFrame = checkLoop.call(this, this.currentFrame, this.currentAnimation.length);
 
                         }
-                        data.controlTimer();
+
                     },
                     controlTimer: function () {
                         // duration overrides fps
                         var speed = 1000 / data.settings.fps;
 
-                        if (typeof data.settings.duration !== 'undefined') {
+                        if (data.settings.duration !== undefined) {
                             speed = data.settings.duration / data.settings.totalFrames;
                         }
 
@@ -125,7 +126,7 @@
     var frame = function (frameNumber) {
         // frame: number of the frame to be displayed
         return this.each(function () {
-            if (typeof $(this).data('animateSprite') !== 'undefined') {
+            if ($(this).data('animateSprite') !== undefined) {
                 var $this = $(this),
                     data  = $this.data('animateSprite'),
                     row = Math.floor(frameNumber / data.settings.columns),
@@ -140,7 +141,7 @@
         return this.each(function () {
             var $this = $(this),
                 data  = $this.data('animateSprite');
-            clearInterval(data.interval);
+            clearTimeout(data.interval);
         });
     };
 
@@ -174,12 +175,12 @@
 
             if (typeof animationName === 'string') {
 
+                $this.animateSprite('stopAnimation');
                 if (data.settings.animations[animationName] !== data.currentAnimation) {
-                    $this.animateSprite('stopAnimation');
                     data.currentAnimation = data.settings.animations[animationName];
-                    data.currentFrame = 0;
-                    data.controlTimer();
                 }
+                data.controlTimer();
+                data.currentFrame = 0;
             }
 
         });
