@@ -28,7 +28,7 @@
 var currentFps = 12;
 var animationSettings = {
     fps: currentFps,
-    loop: false,
+    loop: true,
     animations: {
         walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
         walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
@@ -43,7 +43,7 @@ var animationSettings = {
 
 var animationSettingsOld = {
     fps: currentFps,
-    loop: false,
+    loop: true,
 
     complete: function(){
         // this will be called when

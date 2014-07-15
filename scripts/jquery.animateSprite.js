@@ -175,12 +175,12 @@
 
             if (typeof animationName === 'string') {
 
+                $this.animateSprite('stopAnimation');
                 if (data.settings.animations[animationName] !== data.currentAnimation) {
-                    $this.animateSprite('stopAnimation');
                     data.currentAnimation = data.settings.animations[animationName];
-                    data.currentFrame = 0;
-                    data.controlTimer();
                 }
+                data.controlTimer();
+                data.currentFrame = 0;
             }
 
         });

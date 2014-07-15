@@ -5,6 +5,8 @@ Animating sprites using jQuery made easy
 
 Release notes
 -------------
+**1.3.2** Calling `$(".scott").animateSprite('play', 'walkLeft')` will restart the animation from the first frame.
+
 **1.3.1** Fixed `loop: false` failing to remove timer.
 
 **1.3.0** Added support for bower. You can install now the plugin using `bower install animatesprite`. Fixed a leak when removing the DOM element, and added a new method to change FPS.
