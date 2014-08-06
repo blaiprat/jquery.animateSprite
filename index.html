@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>jQuery.animateSprite 1.3.2 | sprite animations made simple</title>
+        <title>jQuery.animateSprite 1.3.3 | sprite animations made simple</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -38,7 +38,7 @@
 
         <!-- Add your site or application content here -->
         <header>
-            <h1>jQuery.animateSprite 1.3.2</h1>
+            <h1>jQuery.animateSprite 1.3.3</h1>
             <h2>Sprite animations made simple</h2>
             <a href="#" class="small ramona-left">Run to the left</a>
             <div class="ramona"></div>
@@ -167,6 +167,7 @@ $(".scott").animateSprite({
                 $(".scott, .ramona").animateSprite({
                     fps: 12,
                     loop: true,
+                    autoplay: true,
                     animations: {
                         walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
                         walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
