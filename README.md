@@ -5,6 +5,8 @@ Animating sprites using jQuery made easy
 
 Release notes
 -------------
+**1.3.3** Added `autoplay: false` to prevent the animation from playing from the start
+
 **1.3.2** Calling `$(".scott").animateSprite('play', 'walkLeft')` will restart the animation from the first frame.
 
 **1.3.1** Fixed `loop: false` failing to remove timer.
@@ -56,6 +58,7 @@ Example:
     duration:       int     // time to complete the animation, in milliseconds (overrides fps)
     complete:       function // called after the animation has finished (not called if loop is set to true)
     loop:           bool    // if the animation has to loop
+    autoplay:       bool    // if the animation starts inmedately
     animations:     object  // Contains multiple animations.
                             // The key should be the name of the animation,
                             // and the value should be an array with the frames.

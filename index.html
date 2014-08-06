@@ -29,6 +29,7 @@ var currentFps = 12;
 var animationSettings = {
     fps: currentFps,
     loop: true,
+    autoPlay: false,
     animations: {
         walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
         walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
@@ -44,6 +45,7 @@ var animationSettings = {
 var animationSettingsOld = {
     fps: currentFps,
     loop: true,
+    autoPlay: false,
 
     complete: function(){
         // this will be called when
@@ -53,7 +55,8 @@ var animationSettingsOld = {
     }
 };
 
-$('.animation').animateSprite(animationSettings);
+$('.animation').animateSprite(animationSettingsOld);
+$('.animation').animateSprite('play');
 
 var goLeft = function(){
     $('.animation').animateSprite('play', 'walkLeft');

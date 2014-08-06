@@ -1,9 +1,6 @@
-/* jQuery.animateSprite
+/*! jqueryanimatesprite - v1.3.3 - 2014-08-06
 * http://blaiprat.github.io/jquery.animateSprite/
-*
-* Copyright (c) 2014 Blai Pratdesaba  <hello@blaipratdesaba.com>, contributors
-* Licensed under the MIT license.
-*/
+* Copyright (c) 2014 blai Pratdesaba; Licensed MIT */
 (function ($, window, undefined) {
 
     'use strict';
@@ -38,7 +35,7 @@
                         fps: 12,
                         complete: function () {},
                         loop: false,
-                        autoPlay: true
+                        autoplay: true
                     }, options),
                     currentFrame: 0,
                     controlAnimation: function () {
@@ -107,13 +104,17 @@
                             var rows = Math.round(height / data.settings.height);
                             data.settings.totalFrames = data.settings.columns * rows;
                         }
-                        data.controlTimer();
+                        if (data.settings.autoplay) {
+                            data.controlTimer();
+                        }
                     });
                 } else {
 
                     // if everything is already set up
                     // we start the interval
-                    data.controlTimer();
+                    if (data.settings.autoplay) {
+                        data.controlTimer();
+                    }
                 }
 
 
@@ -180,7 +181,9 @@
                     data.currentAnimation = data.settings.animations[animationName];
                 }
                 data.controlTimer();
-                data.currentFrame = 0;
+            } else {
+                $this.animateSprite('stopAnimation');
+                data.controlTimer();
             }
 
         });
