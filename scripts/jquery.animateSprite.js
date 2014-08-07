@@ -1,4 +1,4 @@
-/*! jqueryanimatesprite - v1.3.3 - 2014-08-06
+/*! jqueryanimatesprite - v1.3.4 - 2014-08-07
 * http://blaiprat.github.io/jquery.animateSprite/
 * Copyright (c) 2014 blai Pratdesaba; Licensed MIT */
 (function ($, window, undefined) {
@@ -178,6 +178,7 @@
 
                 $this.animateSprite('stopAnimation');
                 if (data.settings.animations[animationName] !== data.currentAnimation) {
+                    data.currentFrame = 0;
                     data.currentAnimation = data.settings.animations[animationName];
                 }
                 data.controlTimer();

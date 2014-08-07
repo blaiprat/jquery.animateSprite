@@ -14,6 +14,7 @@
 
         <button id="left">Go Left</button>
         <button id="right">Go Right</button>
+        <button id="play">Play</button>
         <button id="stop">Stop</button>
         <button id="resume">Resume</button>
         <button id="restart">Restart</button>
@@ -28,8 +29,8 @@
 var currentFps = 12;
 var animationSettings = {
     fps: currentFps,
-    loop: true,
-    autoPlay: false,
+    loop: false,
+    autoplay: false,
     animations: {
         walkRight: [0, 1, 2, 3, 4, 5, 6, 7],
         walkLeft: [15, 14, 13, 12, 11, 10, 9, 8]
@@ -45,7 +46,7 @@ var animationSettings = {
 var animationSettingsOld = {
     fps: currentFps,
     loop: true,
-    autoPlay: false,
+    autoplay: false,
 
     complete: function(){
         // this will be called when
@@ -55,8 +56,8 @@ var animationSettingsOld = {
     }
 };
 
-$('.animation').animateSprite(animationSettingsOld);
-$('.animation').animateSprite('play');
+$('.animation').animateSprite(animationSettings);
+// $('.animation').animateSprite('play');
 
 var goLeft = function(){
     $('.animation').animateSprite('play', 'walkLeft');
@@ -65,6 +66,11 @@ var goLeft = function(){
 var goRight = function(){
     $('.animation').animateSprite('play', 'walkRight');
 }
+
+var play = function(){
+    $('.animation').animateSprite('play');
+}
+$('#play').on('click', play);
 $('#left').on('click', goLeft);
 $('#right').on('click', goRight);
 $('#stop').on('click', function(){
