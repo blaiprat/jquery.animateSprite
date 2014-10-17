@@ -16,13 +16,13 @@
             var discoverColumns = function (cb) {
                 var imageSrc = $this.css('background-image').replace(/url\((['"])?(.*?)\1\)/gi, '$2');
                 var image = new Image();
-                image.src = imageSrc;
 
                 image.onload = function () {
                     var width = image.width,
                         height = image.height;
                     cb(width, height);
                 };
+                image.src = imageSrc;
             };
 
             if (!data) {
