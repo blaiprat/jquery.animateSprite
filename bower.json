@@ -1,6 +1,6 @@
 {
   "name": "animatesprite",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "Animating sprites using jQuery made easy",
   "main": "scripts/jquery.animateSprite.js",
   "dependencies": {

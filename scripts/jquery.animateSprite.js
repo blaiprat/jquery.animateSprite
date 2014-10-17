@@ -1,4 +1,4 @@
-/*! jqueryanimatesprite - v1.3.4 - 2014-08-07
+/*! jqueryanimatesprite - v1.3.5 - 2014-10-17
 * http://blaiprat.github.io/jquery.animateSprite/
 * Copyright (c) 2014 blai Pratdesaba; Licensed MIT */
 (function ($, window, undefined) {

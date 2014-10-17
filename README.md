@@ -5,6 +5,8 @@ Animating sprites using jQuery made easy
 
 Release notes
 -------------
+**1.3.5** Fix image cache problem on IE7/8.
+
 **1.3.4** Fixed a problem when switching from one animation to a new one the new one wouldn't play.
 
 **1.3.3** Added `autoplay: false` to prevent the animation from playing from the start
